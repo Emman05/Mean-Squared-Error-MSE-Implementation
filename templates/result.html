@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSE Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result_style/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>MSE Calculation Results</h1>
+        {% if error %}
+            <p style="color: red;">Error: {{ error }}</p>
+        {% else %}
+            {% if request.form.get('dataset') %}
+                <h3>Scenario: {{ request.form.get('dataset').replace('_', ' ').title() }}</h3>
+            {% endif %}
+            <p><strong>Actual Values:</strong> {{ y_true }}</p>
+            <p><strong>Predicted Values:</strong> {{ y_pred }}</p>
+            <p><strong>Mean Squared Error (MSE):</strong> {{ mse }}</p>
+        {% endif %}
+        <a href="/" class="button">Back to Home</a>
+    </div>
+    
+</body>
+</html>

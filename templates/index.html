@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSE Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index_style/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Mean Squared Error (MSE) Calculator</h1>
+        <h2>
+            The Mean Squared Error (MSE) is a metric used to measure the accuracy of predictions. 
+            It calculates the average of the squared differences between actual and predicted values.
+        </h2>
+        <div class="info">
+            <h3>Why is MSE Important?</h3>
+            <p>
+                MSE is a widely used evaluation metric for regression models in machine learning. 
+                It provides a single number that quantifies the error between the actual and predicted values. 
+                Lower MSE values indicate better model performance. MSE is sensitive to outliers, making it an effective way to evaluate the accuracy of predictions.
+            </p>
+            <h3>Applications of MSE:</h3>
+            <p>
+                Evaluating the accuracy of house price predictions. <br>
+                Assessing stock price forecasting models.<br>
+                Comparing the performance of regression algorithms.<br>
+            </p>
+        </div>
+        <form action="/calculate" method="POST">
+            <label for="actual_values">Enter Actual Values (comma-separated):</label>
+            <input type="text" id="actual_values" name="actual_values" required>
+
+            <label for="predicted_values">Enter Predicted Values (comma-separated):</label>
+            <input type="text" id="predicted_values" name="predicted_values" required>
+
+            <button type="submit">Calculate MSE</button>
+        </form>
+
+        <div class="examples">
+            <h3>Example Datasets:</h3>
+            <form action="/calculate" method="POST" class="example-buttons">
+                <button type="submit" name="dataset" value="house_prices">House Prices</button>
+                <button type="submit" name="dataset" value="stock_prices">Stock Prices</button>
+                <button type="submit" name="dataset" value="weather_forecast">Weather Forecast</button>
+            </form>
+        </div>
+
+    </div>
+  
+
+</body>
+</html>
